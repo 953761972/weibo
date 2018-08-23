@@ -1,7 +1,5 @@
 package com.yc.bean;
 
-import java.io.File;
-import java.util.Map;
 import java.util.Set;
 
 public class SimpleEmail {

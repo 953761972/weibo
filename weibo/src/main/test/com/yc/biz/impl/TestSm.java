@@ -1,10 +1,7 @@
 package com.yc.biz.impl;
 
-import java.io.File;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.Resource;
@@ -93,8 +90,6 @@ public class TestSm {
         emailSendManager.sendEmail(simpleEmail);
         System.out.println("发送成功");
     }
-
-
 /**
    * 发送简单邮件
    * @throws MessagingException

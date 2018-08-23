@@ -4,7 +4,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%
 	User user=(User)request.getAttribute("user");
-	String email=user.getEmail().substring(0,3)+"****"+user.getEmail().substring(7);
+
+	String email=user.getUemail().substring(0,3)+"****"+user.getUemail().substring(7);
 %>	
 <head>
 		<meta charset="utf-8">

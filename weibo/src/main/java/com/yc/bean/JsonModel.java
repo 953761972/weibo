@@ -1,7 +1,6 @@
 package com.yc.bean;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class JsonModel implements Serializable {
 	private static final long serialVersionUID = 2516541939788696370L;

@@ -39,7 +39,7 @@
 							</div>
 							<div class="ececk_warning"><span>验证码不能为空</span></div>
 							
-							<div style="background-color:pink;" class="form_text_ipt"> <img src=""/></div>
+							<div style="background-color:pink;" class="form_text_ipt"><img  alt="无图片" src="${root}/vc.do" height="30px" onclick="flush(this)"></div>
 
 										
 							<div class="form_btn">
@@ -65,6 +65,11 @@
 		</div>
 		<script type="text/javascript" src="js/jquery.min.js" ></script>
 		<script type="text/javascript" src="js/common.js" ></script>
+		<script>
+		function flush(a){
+			a.src="${root}/vc.do?"+new Date();
+		}
+		</script>
 		<div style="text-align:center;">
 </div>
 	</body>
