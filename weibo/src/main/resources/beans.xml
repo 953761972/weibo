@@ -38,7 +38,7 @@
 	
 	<!-- ======================以下是 mybatis 集成 spring 的相关配置======================= -->
 	<!-- spring 数据源 -->
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 	    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
 	    <property name="url" value="jdbc:mysql://127.0.0.1:3306/weibo?useOldAliasMetadataBehavior=true&amp;characterEncoding=utf-8"/>
 	    <property name="username" value="root"/>
@@ -56,6 +56,9 @@
 				<prop key="logImpl">LOG4J</prop>
 			</props>
 		</property>
+	</bean>
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
 	<!-- mapper 接口扫描bean，正确配置这个 bean 才能获取到 mybatis mapper -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
@@ -88,9 +91,9 @@
 
 	 <!-- 邮件发送   -->    
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-        <property name="host"     value="smtp.163.com" />
-        <property name="username" value="yongguolong@163.com" />
-        <property name="password" value="qwer123456" />
+        <property name="host"  value="smtp.163.com" />
+        <property name="username" value="xzq953761972@163.com" />
+        <property name="password" value="123456789-" />
         <property name="defaultEncoding" value="UTF-8"></property>
         <property name="javaMailProperties">
             <props>

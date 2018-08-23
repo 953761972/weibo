@@ -1,4 +1,4 @@
-package com.yc.biz.impl.test;
+package com.yc.biz.impl;
 
 import java.io.File;
 import java.sql.SQLException;
@@ -38,7 +38,7 @@ public class TestSm {
 	private SqlSessionTemplate sqlSession;
 	
 	@Resource(name = "simpleEmailSendManagerImpl")
-    private EmailSendManager emailSendManager;
+    private EmailSendManagerImpl emailSendManager;
 	
 	@Test
 	public void testDataSource() throws SQLException {
@@ -71,15 +71,15 @@ public class TestSm {
     @Test
     public void sendHTMLEmail() throws Exception {
         SimpleEmail simpleEmail = new SimpleEmail();
-        VerifyCodeUtil verifyCodeUtil=new VerifyCodeUtil();
-        //simpleEmail.setSubject("这里是主题");
-        
+        //VerifyCodeUtil verifyCodeUtil=new VerifyCodeUtil();
+        //simpleEmail.setSubject("这里是主题");        
         String code = VerifyCodeUtil.generateVerifyCode(6);
         System.out.println(code);
-        simpleEmail.setContent(code);
+        simpleEmail.setContent("验证码："+code);
         Set<String> receivers = new HashSet<>();
         receivers.add("953761972@qq.com");
-        simpleEmail.setSubject("带附件的邮件");
+       // receivers.add("xzqxzq953761972@gmail.com");
+        simpleEmail.setSubject("您的验证码为：");
         simpleEmail.setToSet(receivers);
         simpleEmail.setHtml(false);
        /* simpleEmail.setContent("<html><head><meta http-equiv=\"Content-Type\" "
@@ -88,7 +88,8 @@ public class TestSm {
         + "<h2>测试在Spring中发送带HTML格式的邮件</h2></div></body></html>");*/
         //simpleEmail.setAttachment(false);
   
-        Map<String, File> attachments=new HashMap<String,File>();
+        //Map<String, File> attachments=new HashMap<String,File>();
+        System.out.println(simpleEmail.getToSet());
         emailSendManager.sendEmail(simpleEmail);
         System.out.println("发送成功");
     }
@@ -104,7 +105,7 @@ public class TestSm {
     simpleEmail.setSubject("测试在Spring中发送邮件");
 
     Set<String> receivers = new HashSet<>();
-    receivers.add("admin@zifangsky.cn");
+    receivers.add("953761972@qq.com");
     simpleEmail.setToSet(receivers);
 
     simpleEmail.setHtml(false);
