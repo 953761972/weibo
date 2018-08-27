@@ -19,26 +19,22 @@ a {
 						title="司空琪"></i>
 				</div>
 				<div class="lmlblog-member-username">
-					<h1>司空琪</h1>
+					<h1>${logineduser.uname}</h1>
 					<span class="lmlblog-mark lmlblog-girl"><i
 						class="fa fa-mars"></i></span> <span class="lmlblog-mark lmlblog-lv"
 						title="经验：3815">Lv.6</span> <span class="lmlblog-mark lmlblog-vip">VIP
 						6</span>
 				</div>
 				<div class="lmlblog-member-desc">潇洒若风，剑气如虹，一见司空误终身</div>
-				<div class="lmlblog-member-follow-info">
-					<span class="follow no opacity"><i class="lmlblog-icon"></i>+
-						关注</span> <span class="opacity"><i class="lmlblog-icon">&#xe612;</i>
-						私聊</span>
-				</div>
+
 			</div>
 			<div class="lmlblog-member-menu clear">
-				<li class="on"><a href="index.jsp">主页</a></li>
-				<li>动态</li>
-				<li><a href="3.jsp">音乐</a></li>
-				<li>文章</li>
-				<li><a href="2.jsp">视频</a></li>
-				<li><a href="1.jsp" target="_blank">个人档</a></li>
+				<li id="myindex"><a  href="index.jsp">主页</a></li>
+				<li id="dongtai"><a  href="dongtai.jsp">动态</a></li>
+				<li id="xiangce"><a  href="xiangce.jsp">相册</a></li>
+				<li id="wenzhang"><a  href="wenzhang.jsp">文章</a></li>
+				<li id="shiping"><a  href="shiping.jsp">视频</a></li>
+				<li id="gerendang"><a  href="gerendang.jsp">个人档</a></li>
 			</div>
 
 			<div class="lmlblog-member-content-list clear">
@@ -46,27 +42,27 @@ a {
 					<div class="lmlblog-member-left-follow clear">
 
 
-						<li><a> <strong>168</strong> <span>关注</span>
+						<li><a> <strong>${datas.followers}</strong> <span>关注</span>
 						</a></li>
-						<li><a> <strong>666</strong> <span>粉丝</span>
+						<li><a> <strong>${datas.fans}</strong> <span>粉丝</span>
 						</a></li>
-						<li><a> <strong>888</strong> <span>喜欢</span>
+						<li><a> <strong>${datas.likes}</strong> <span>喜欢</span>
 						</a></li>
-						<li><a> <strong>888888</strong> <span>人气</span>
+						<li><a> <strong>${datas.topicCounts}</strong> <span>微博</span>
 						</a></li>
 					</div>
 
 					<div class="lmlblog-member-left-profile">
 						<h3>资料简介</h3>
-						<li><i class="fa fa-address-book-o"></i> I D：<span>520<span></li>
-						<li><i class="fa fa-transgender"></i> 性别：<span>女生<span></li>
-						<li><i class="fa fa-map-marker"></i> 城市：<span>画江湖 司空家<span></li>
-						<li><i class="fa fa-smile-o"></i> 签名：<span>坚强勇敢，利落干脆。冰雪聪明，明眸善睐。重情重义，侠骨柔情。<span></li>
+						<li><i class="fa fa-address-book-o"></i> I D：<span>${logineduser.uname}<span></li>
+						<li><i class="fa fa-transgender"></i> 性别：<span>${logineduser.sex==1?'男':logineduser.sex==2?'女':'保密'}<span></li>
+						<li><i class="fa fa-map-marker"></i> 城市：<span>${logineduser.local==null?'保密':logineduser.local}<span></li>
+						<li><i class="fa fa-smile-o"></i> 签名：<span>${logineduser.resume}<span></li>
 						<div class="lmlblog-member-left-profile-hide">
 							<li><i class="fa fa-qq"></i> Q Q：<span>sikongqi<span></li>
-							<li><i class="fa fa-wechat"></i> 微信：<span>sikongqi<span></li>
+							<li><i class="fa fa-wechat"></i> 微信：<span>${logineduser.wechat==null?'':logineduser.wechat}<span></li>
 							<li><i class="fa fa-weibo"></i> 微博：<span>sikongqi<span></li>
-							<li><i class="fa fa-clock-o"></i> 生日：<span>2月15日<span></li>
+							<li><i class="fa fa-clock-o"></i> 生日：<span>${logineduser.birthday}<span></li>
 						</div>
 						<div class="lmlblog-member-left-profile-more">
 							查看更多 <i class="fa fa-angle-right"></i>

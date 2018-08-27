@@ -19,26 +19,26 @@
 						<div class="login_title">
 							登录
 						</div>
-						<form action="#" method="post">
+						<form action="login.do" method="post">
 							
 							<div class="form_text_ipt">
-								<input name="username" type="text" placeholder="手机号/邮箱">
+								<input name="uemail" type="text" placeholder="邮箱">
 							</div>
 							<div class="ececk_warning"><span>手机号/邮箱不能为空</span></div>
 							<div class="form_text_ipt">
-								<input name="password" type="password" placeholder="密码">
+								<input name="upass" type="password" placeholder="密码">
 							</div>
 							<div class="ececk_warning"><span>密码不能为空</span></div>
 							<div class="form_check_ipt">
 								<div class="left check_left">
-									<label><input name="" type="checkbox"> 下次自动登录</label>
+									<label><input name="rember" type="checkbox"> 下次自动登录</label>
 								</div>
 								<div class="right check_right">
 									<a href="#">忘记密码</a>
 								</div>
 							</div>
 							<div class="form_btn">
-								<button type="button" onclick="javascript:window.location.href='#'">登录</button>
+								<button type="button" onclick="submitlogin()">登录</button>
 							</div>
 							<div class="form_reg_btn">
 								<span>还没有帐号？</span><a href="register.html">马上注册</a>
@@ -58,7 +58,7 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
 		<script type="text/javascript" src="js/common.js" ></script>
 		<div style="text-align:center;">
 </div>

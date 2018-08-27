@@ -45,8 +45,8 @@ public class UserDaoTest {
 		user.setUpass("123456-"); 
 		String upass = Utils.md5(user.getUpass());
 		user.setUpass(upass); 		
-		Timestamp now=new Timestamp(System.currentTimeMillis());
-		user.setUregtime(now);
+		//Timestamp now=new Timestamp(System.currentTimeMillis());
+		//user.setUregtime(now);
 		udao.insert(user);
 	}
 }

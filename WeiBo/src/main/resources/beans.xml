@@ -23,8 +23,7 @@
 	<!-- spring mvc 注解驱动 -->
 	<mvc:annotation-driven />
 	<!-- spring mvc 视图解析器 -->
-	<bean id="jspViewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean id="jspViewResolver" 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/" />
@@ -40,7 +39,7 @@
 	<!-- spring 数据源 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 	    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-	    <property name="url" value="jdbc:mysql://127.0.0.1:3306/weibo?useOldAliasMetadataBehavior=true&amp;characterEncoding=utf-8"/>
+	    <property name="url" value="jdbc:mysql://127.0.0.1:3306/weibo?useOldAliasMetadataBehavior=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull"/>
 	    <property name="username" value="root"/>
 	    <property name="password" value="1"/>
 	</bean>
@@ -103,4 +102,18 @@
             </props>
         </property>
     </bean>
+
+    <mvc:interceptors>
+        <!--<bean class="com.ma.interceptor.CustomeInterceptor" />-->
+        <!--拦截器1-->
+        <mvc:interceptor>
+            <!--配置拦截器的作用路径-->
+            <mvc:mapping path="/**"/>          
+			<mvc:exclude-mapping path="/**/vc.do"/> 
+			<mvc:exclude-mapping path="/**/login.do"/>
+			        
+            <!--定义在<mvc:interceptor>下面的表示匹配指定路径的请求才进行拦截-->
+            <bean class="com.yc.filter.UserLoginInterceptorBySpring"/>
+        </mvc:interceptor>
+		</mvc:interceptors>
 </beans>

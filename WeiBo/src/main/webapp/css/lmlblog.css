@@ -1,4 +1,4 @@
-ï»¿.opacity:hover{
+.opacity:hover{
     opacity: 0.8;
 }
 .clear:after{
@@ -54,7 +54,7 @@
     padding-top:80px; 
 }
 
-/*ç”¨æˆ·ä¸­å¿ƒ*/
+/*ÓÃ»§ÖĞĞÄ*/
 .lmlblog-member-main {
     padding-top: 50px;
     background: #0a0627 url(http://wx3.sinaimg.cn/large/9c774d91gy1ft2c2d2gz8j21e00qktt3.jpg) bottom center fixed;
@@ -357,7 +357,7 @@
 .lmlblog-member-left-bg-music video{height:38px;}
 .lmlblog-member-left-bg-xg h2{ padding-bottom:10px; text-align:center;}
 .lmlblog-member-left-bg-xg img{width:280px;}
-/*æ›´æ¢èƒŒæ™¯å°é¢*/
+/*¸ü»»±³¾°·âÃæ*/
 .lmlblog-member-change-bg-form {
     position: fixed;
     z-index: 9999;
@@ -443,7 +443,7 @@
     display: block;
 }
 
-/*æ¢å°é¢æ»šåŠ¨æ¡*/
+/*»»·âÃæ¹ö¶¯Ìõ*/
 .lmlblog-member-change-bg-content::-webkit-scrollbar {
     width: 3px;
     height: 6px;
@@ -468,7 +468,7 @@
     width: 710px;
 }
 
-/*è®¿å®¢*/
+/*·Ã¿Í*/
 .lmlblog-member-left-visitor {
     padding: 16px;
     background-color: #fff;
@@ -510,7 +510,7 @@
     margin-bottom: 10px;
 }
 
-/*æ ‡è¯†ã€å¤´è¡”ã€æ€§åˆ«ã€ç­‰çº§ã€VIP*/
+/*±êÊ¶¡¢Í·ÏÎ¡¢ĞÔ±ğ¡¢µÈ¼¶¡¢VIP*/
 .lmlblog-mark {
     min-width: 8px;
     border-radius: 9px;
@@ -552,7 +552,7 @@
     cursor: pointer;
 }
 
-/*ä¾§æ å°å·¥å…·*/
+/*²àÀ¸Ğ¡¹¤¾ß*/
 .lmlblog-sidebar-box{
     margin-bottom: 10px;
     border-radius: 2px;
@@ -886,7 +886,7 @@
 
 
 
-/*è®¾ç½®é¡µé¢*/
+/*ÉèÖÃÒ³Ãæ*/
 .lmlblog-page{
     background: #fff;
     min-height: 300px;
@@ -910,7 +910,7 @@
     height: 100px;
     margin-left: -50px;
 }
-/*å‘è¡¨éŸ³ä¹è¡¨å•*/
+/*·¢±íÒôÀÖ±íµ¥*/
 .lmlblog-select-music .layui-form-label {
     text-align: left;
     padding: 9px 0;
@@ -974,7 +974,7 @@
 
 
 
-/*é‡‘å¸å›¾æ ‡*/
+/*½ğ±ÒÍ¼±ê*/
 .lmlblog-gold-icon{
     display: inline-block;
     width: 22px;
@@ -984,7 +984,7 @@
 .layui-layer-content .lmlblog-gold-icon {
     vertical-align: -4px;
 }
-/*ç»éªŒå›¾æ ‡*/
+/*¾­ÑéÍ¼±ê*/
 .lmlblog-exp-icon{
     display: inline-block;
     width: 22px;
@@ -995,7 +995,7 @@
     vertical-align: -5px;
 }
 
-/*è¡¨æƒ…*/
+/*±íÇé*/
 .lmlblog-single-expression-btn {
     width: 24px;
     height: 24px;
@@ -1128,7 +1128,7 @@ img.wp-smiley {
     max-height: 30px !important;
 }
 
-/*å‘å¸ƒæ¡†è¡¨æƒ…*/
+/*·¢²¼¿ò±íÇé*/
 .lmlblog-single-expression-btn.publish {
     float: right;
     top: -30px;
@@ -1167,7 +1167,7 @@ img.wp-smiley {
 
 
 
-/*IMæ¨¡å—*/
+/*IMÄ£¿é*/
 
 .lmlblog-chat {
     width: 240px;
@@ -1493,7 +1493,7 @@ img.wp-smiley {
     text-align: center;
 }
 
-/*åŠ¨æ€æ¨¡ç‰ˆ*/
+/*¶¯Ì¬Ä£°æ*/
 .lmlblog-posts-list {
     background-color: #fff;
     clear: both;
@@ -1765,7 +1765,7 @@ img.wp-smiley {
     color: #f23c3c;
 }
 
-/*æ–‡ç« åˆ—è¡¨*/
+/*ÎÄÕÂÁĞ±í*/
 .lmlblog-post-single-bar {
     color: #aaa;
     position: absolute;
@@ -1913,7 +1913,7 @@ img.wp-smiley {
     border-radius: 2px;
 }
 
-/*ç©ºé¡µé¢*/
+/*¿ÕÒ³Ãæ*/
 .lmlblog-empty-page {
     text-align: center;
     color: #999;
@@ -1937,7 +1937,7 @@ img.wp-smiley {
 }
 
 
-/*å³ä¾§æ */
+/*ÓÒ²àÀ¸*/
 .lmlblog-right-bar {
     position: fixed;
     right: 3%;
@@ -1964,7 +1964,7 @@ img.wp-smiley {
     font-size: 20px;
 }
 
-/*é¦–é¡µajaxèœå•*/
+/*Ê×Ò³ajax²Ëµ¥*/
 .lmlblog-index-menu {
     background-color: #fff;
     clear: both;
@@ -2030,7 +2030,7 @@ img.wp-smiley {
 }
 
 
-/*é¦–é¡µèœå•æ’åº*/
+/*Ê×Ò³²Ëµ¥ÅÅĞò*/
 .lmlblog-index-menu-sort-form .layui-layer-content {
     padding: 15px;
     overflow:hidden !important; 
@@ -2063,7 +2063,7 @@ img.wp-smiley {
     vertical-align: -3px;
 }
 
-/*åˆ†é¡µ*/
+/*·ÖÒ³*/
 
 .lmlblog-pager {
     background: #fff;
@@ -2099,6 +2099,7 @@ img.wp-smiley {
     margin: 0 20%;
     border: none;
     cursor: pointer;
+    
 }
 .lmlblog-pager-right {
     width: 40%;
@@ -2113,9 +2114,9 @@ img.wp-smiley {
     text-align: center;
 }
 .lmlblog-pager-center .layui-form-select dl{
-    z-index: 9999;
+    z-index: 9998;
 }
-/*ajaxåŠ è½½æ›´æ–°å†…å®¹*/
+/*ajax¼ÓÔØ¸üĞÂÄÚÈİ*/
 .lmlblog-more-posts {
     clear: both;
     text-align: center;
@@ -2128,7 +2129,7 @@ img.wp-smiley {
     color: #555;
 }
 
-/*layuiç›¸å…³*/
+/*layuiÏà¹Ø*/
 .layui-form-checkbox span m {
     color: #2eb254;
     margin-left: 5px;

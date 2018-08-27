@@ -95,6 +95,23 @@ function submitcode(a){
 	alert("验证码不正确！");
 }
 
+
+function submitlogin(){
+	var uname=$('input[name="uname"]').val();
+	var upass=$('input[name="upass"]').val();
+	if(uname==""){
+		return false;
+	}
+	if(upass==""){
+		return false;
+	}
+	
+	if(uname!=""&&upass!=""){
+		$('form').submit();
+	}
+	
+}
+
 function mysubmit(){
 	 var regemail=/^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;  
 	 var regpass=/^[a-zA-Z0-9]{4,10}$/;

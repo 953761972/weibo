@@ -13,6 +13,7 @@ public class User {
 	private String uemail;
 	private String uhead;
 	private Timestamp uregtime;
+	//private String uregtime;
 	private String realname;
 	private String local;
 	private Integer sex;
@@ -22,12 +23,35 @@ public class User {
 	private String resume;
 	private String wechat;
 	private String label;
-
+	private String backgroundimg;
+	private String headbackground;
+	
+	
 	private List<Group> groups;
 	private List<Album> albums;
 	private List<Topic> topics;
 	
 	
+	public String getBackgroundimg() {
+		return backgroundimg;
+	}
+
+
+	public void setBackgroundimg(String backgroundimg) {
+		this.backgroundimg = backgroundimg;
+	}
+
+
+	public String getHeadbackground() {
+		return headbackground;
+	}
+
+
+	public void setHeadbackground(String headbackground) {
+		this.headbackground = headbackground;
+	}
+
+
 	public List<Group> getGroups() {
 		return groups;
 	}
@@ -213,8 +237,8 @@ public class User {
 		return "User [uid=" + uid + ", uname=" + uname + ", upass=" + upass + ", uemail=" + uemail + ", uhead=" + uhead
 				+ ", uregtime=" + uregtime + ", realname=" + realname + ", local=" + local + ", sex=" + sex
 				+ ", emotion=" + emotion + ", birthday=" + birthday + ", booldtype=" + booldtype + ", resume=" + resume
-				+ ", wechat=" + wechat + ", label=" + label + ", groups=" + groups + ", albums=" + albums + ", topics="
-				+ topics + "]";
+				+ ", wechat=" + wechat + ", label=" + label + ", backgroundimg=" + backgroundimg + ", headbackground="
+				+ headbackground + ", groups=" + groups + ", albums=" + albums + ", topics=" + topics + "]";
 	}
 
 

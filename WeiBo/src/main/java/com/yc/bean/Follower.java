@@ -1,5 +1,8 @@
 package com.yc.bean;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Follower {
 	private Integer followerid;
 	private Integer uid;
