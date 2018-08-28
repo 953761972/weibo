@@ -25,8 +25,8 @@ public class UserBiz {
 	}
 	//用户登录验证
 	public List<User> select(User user){
-		//String upass = Utils.md5(user.getUpass());
-		//user.setUpass(upass);
+		String upass = Utils.md5(user.getUpass());
+		user.setUpass(upass);
 		return udao.select(user);
 	}
 	//查找一个用户
@@ -45,5 +45,13 @@ public class UserBiz {
 	//统计用户微博数
 	public int topicCount(Integer uid){
 		return udao.topicCount(uid);
+	}
+	//查找邮箱
+	public boolean SelectUemail(String uemail){
+		
+			List<User> u=udao.selectUemail(uemail);
+			System.out.println(u.toString());
+			System.out.println(u.size());
+			return u.size()<=0?false:true;		
 	}
 }

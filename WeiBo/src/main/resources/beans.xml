@@ -39,9 +39,9 @@
 	<!-- spring 数据源 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 	    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-	    <property name="url" value="jdbc:mysql://127.0.0.1:3306/weibo?useOldAliasMetadataBehavior=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull"/>
+	    <property name="url" value="jdbc:mysql://127.0.0.1:3306/weib?useOldAliasMetadataBehavior=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull"/>
 	    <property name="username" value="root"/>
-	    <property name="password" value="1"/>
+	    <property name="password" value="a"/>
 	</bean>
 	<!-- mybatis 会话工厂 -->	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -111,7 +111,11 @@
             <mvc:mapping path="/**"/>          
 			<mvc:exclude-mapping path="/**/vc.do"/> 
 			<mvc:exclude-mapping path="/**/login.do"/>
-			        
+			  <mvc:exclude-mapping path="/**/reg.do"/>  
+			  <mvc:exclude-mapping path="/**/bangding.do"/>
+			  <mvc:exclude-mapping path="/**/bd.do"/>
+			   <mvc:exclude-mapping path="/**/wangji.do"/>
+			   <mvc:exclude-mapping path="/**/xiugai.do"/>   
             <!--定义在<mvc:interceptor>下面的表示匹配指定路径的请求才进行拦截-->
             <bean class="com.yc.filter.UserLoginInterceptorBySpring"/>
         </mvc:interceptor>

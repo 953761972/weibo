@@ -30,6 +30,9 @@ public interface UserDao {
 	//统计用户发的微博数
 	@Select("select count(*) from topic where uid=#{uid}")
 	int topicCount(Integer uid);
+	//查找邮箱
+	@Select("select * from user where uemail=#{uemail}")
+	List<User> selectUemail(String uemail);
 	
 
 }
