@@ -4,6 +4,10 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.One;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
@@ -21,7 +25,7 @@ public interface FollowerDao {
 	@Select("select * from user where uid in"
 			+ "(select followerid from follower where groupid ="
 			+ "(select groupid from groupp where groupname=#{groupname} and uid=#{uid}))")
-	List<User> selectByGroup(Integer uid,String groupname);
+	List<User> selectByGroup(@Param("uid")Integer uid,@Param("groupname")String groupname);
 	
 	//移动一个好友到另一个分组
 	@Update("update follower set groupid=#{groupid} where uid=#{uid} and followerid=#{followerid}")
@@ -36,4 +40,23 @@ public interface FollowerDao {
 	@Select("select * from user where uid in(select followerid from follower where uid=#{uid})")
 	List<User> selectAll(Integer uid);
 	
+	//查找用户所有好友(fenye)
+	@Select("select * from user where uid in(select followerid  from follower where uid=#{uid}) limit #{start},#{size}")
+	List<User> selectByPages(@Param("uid")Integer uid,@Param("start")Integer start,@Param("size")Integer size);
+	
+	//查找一个分组的好友数
+	@Select("select count(*) from follower where groupid=#{groupid}")
+	int SelectCount(Integer groupid);
+	
+	//往未分组中插入一个好友（）
+	@Insert("insert into follower values(#{uid},#{followerid},0")
+	void insertToDefault(Follower follower);
+	
+	//查找未分组
+	@Select("select * from follower where uid=#{uid} and groupid=null")
+	List<User> selectWeiFenZu(Integer uid);
+	
+	//
+	@Select("select groupid from follower where uid=#{uid} and followerid=#{fuid}")
+	Integer selectGroupid(@Param("uid")Integer uid, @Param("fuid")Integer fuid);
 }

@@ -17,7 +17,54 @@ public class Topic {
 	private List<Comment> comments;
 	private User user;
 	private String image;
+	private List<String> images;
+	private Integer transpondfrom;
+	private Integer transfromuid;
+	private String transfromuname;
+	private Integer commentcount;
 	
+	@Override
+	public String toString() {
+		return "Topic [topicid=" + topicid + ", uid=" + uid + ", content=" + content + ", posttime=" + posttime
+				+ ", visible=" + visible + ", likecount=" + likecount + ", comments=" + comments + ", user=" + user
+				+ ", image=" + image + ", images=" + images + ", transpondfrom=" + transpondfrom + ", transfromuid="
+				+ transfromuid + ", transfromuname=" + transfromuname + ", commentcount=" + commentcount + "]";
+	}
+	
+	public Integer getCommentcount() {
+		return commentcount;
+	}
+
+	public void setCommentcount(Integer commentcount) {
+		this.commentcount = commentcount;
+	}
+
+	public String getTransfromuname() {
+		return transfromuname;
+	}
+	public void setTransfromuname(String transfromuname) {
+		this.transfromuname = transfromuname;
+	}
+	public Integer getTransfromuid() {
+		return transfromuid;
+	}
+	public void setTransfromuid(Integer transfromuid) {
+		this.transfromuid = transfromuid;
+	}
+
+	public Integer getTranspondfrom() {
+		return transpondfrom;
+	}
+	public void setTranspondfrom(Integer transpondfrom) {
+		this.transpondfrom = transpondfrom;
+	}
+	public List<String> getImages() {
+		return images;
+	}
+	public void setImages(List<String> images) {	
+		this.images = images;
+		this.images.add(image);
+	}
 	public String getImage() {
 		return image;
 	}
@@ -78,12 +125,7 @@ public class Topic {
 	public void setLikecount(Integer likecount) {
 		this.likecount = likecount;
 	}
-	@Override
-	public String toString() {
-		return "Topic [topicid=" + topicid + ", uid=" + uid + ", content=" + content + ", posttime=" + posttime
-				+ ", visible=" + visible + ", likecount=" + likecount + ", comments=" + comments + ", user=" + user
-				+ ", image=" + image + "]";
-	}
+
 	
 	
 }

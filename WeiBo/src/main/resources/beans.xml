@@ -108,14 +108,18 @@
         <!--拦截器1-->
         <mvc:interceptor>
             <!--配置拦截器的作用路径-->
-            <mvc:mapping path="/**"/>          
+             <mvc:mapping path="/**"/>          
 			<mvc:exclude-mapping path="/**/vc.do"/> 
+ 
+			<!--  <mvc:exclude-mapping path="/**/findcomment.do"/>   -->      
+
 			<mvc:exclude-mapping path="/**/login.do"/>
 			  <mvc:exclude-mapping path="/**/reg.do"/>  
 			  <mvc:exclude-mapping path="/**/bangding.do"/>
 			  <mvc:exclude-mapping path="/**/bd.do"/>
 			   <mvc:exclude-mapping path="/**/wangji.do"/>
 			   <mvc:exclude-mapping path="/**/xiugai.do"/>   
+
             <!--定义在<mvc:interceptor>下面的表示匹配指定路径的请求才进行拦截-->
             <bean class="com.yc.filter.UserLoginInterceptorBySpring"/>
         </mvc:interceptor>

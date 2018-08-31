@@ -44,7 +44,7 @@ crossorigin="anonymous"></script>
 <script src="template/xlmm_wb/image/xlmm.js" type="text/javascript"></script> 
   <script type='text/javascript' src='js/myindex.js'></script> 
 </head>	
-
+<body>
 <!--  -->
 	<!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

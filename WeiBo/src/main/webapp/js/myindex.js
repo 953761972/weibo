@@ -15,7 +15,7 @@ function dianzan(a){
 	$.post("dianzan.do",data,function(data){			
 			//var obj=$.toJSON(data);			
 			var json =data.replace("IsAjax",""); // data的值是json字符串，这行把字符串转成object  
-	       // alert(json);// 取出属性值testname
+	      //  alert(json);// 取出属性值testname
 			
 		//	alert(obj);
 			$('li[value='+topicid+'] span').text(json);

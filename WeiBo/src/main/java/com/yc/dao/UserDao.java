@@ -21,9 +21,9 @@ public interface UserDao {
 			+ " values(#{uname},#{upass},#{uemail},now())")
 	@Options(useGeneratedKeys=true,keyColumn="uid",keyProperty="uid")
 	int insert(User user);
-	//用于注册后查一次信息
+	//查找一个用户的信息
 	@Select("select * from user where uid=#{uid}")
-	List<User> selectByID(int uid);
+	User selectByID(int uid);
 	//统计用户的好友数
 	@Select("select count(*) from follower where uid=#{uid}")
 	int FollowerCount(Integer uid);
@@ -36,7 +36,14 @@ public interface UserDao {
 	//查找邮箱
 	@Select("select * from user where uemail=#{uemail}")
 	List<User> selectUemail(String uemail);
+
 	//修改密码
 	@Update("update user set  upass=#{upass} where uemail=#{uemail}")
 	int updata(@Param("upass")String upass,@Param("uemail")String uemail);
+
+	
+	//@Select("select * from user where uid=#{uid}")
+	//User selectByID(Integer uid);
+
+//github.com/953761972/weibo.git
 }

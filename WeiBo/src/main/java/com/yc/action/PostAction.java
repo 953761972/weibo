@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +29,12 @@ public class PostAction {
 	private TopicBiz tbiz;
 	@Autowired
 	private Topic topic;
-
+	@Autowired
+	private User user;
 	@RequestMapping("post.do")
 	public String post(MultipartFile contentimg, HttpSession session, Model model, String contenttext) {
 		System.out.println(contenttext);
-		User user = (User) session.getAttribute("logineduser");
+		user = (User) session.getAttribute("logineduser");
 		// User user=new User();
 		// user.setUid(123);
 		// 判断是否有图片
@@ -83,4 +85,33 @@ public class PostAction {
 		model.addAttribute("msg", "发布成功");
 		return "redirect:index.do";
 	}
+	
+	@RequestMapping("zhuanfa.do")
+	public void zhuanfa(HttpSession session,String topicid,HttpServletResponse reponse){
+
+		 try {
+				user =(User) session.getAttribute("logineduser");
+				 topic=tbiz.selectByID(Integer.parseInt(topicid));
+				 topic.setUid(user.getUid());
+				 
+				 User u=ubiz.selectByID(user.getUid());
+				 topic.setContent(topic.getContent());
+				 topic.setTranspondfrom(topic.getTopicid());
+				 topic.setTransfromuname(u.getUname());
+				 topic.setTransfromuid(u.getUid());
+				 tbiz.transpond(topic);
+				 System.out.println("好像转发成功了");
+			reponse.getWriter().print(1);
+		} catch (Exception e) {
+			 try {
+				System.out.println("好像转发失败了");
+				reponse.getWriter().print(-1);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		}		 
+	}
+	
+	
 }

@@ -18,9 +18,11 @@ img.wp-smiley, img.emoji {
 	background: none !important;
 	padding: 0 !important;
 }
-a,.dropdown span{
-	cursor:pointer
+
+a, .dropdown span {
+	cursor: pointer
 }
+
 .guanzhu {
 	width: 80px;
 	height: 100px;
@@ -38,57 +40,57 @@ a,.dropdown span{
 	display: inline-block;
 	position: absolute;
 }
-.miaoshu{
-	overflow:hidden;
+
+.miaoshu {
+	overflow: hidden;
 	text-overflow: ellipsis;
-	white-space:nowrap; 
+	white-space: nowrap;
 }
-.xuanxiang ul li{
-	width:70px;
-	background-color:white;	
+
+.xuanxiang ul li {
+	width: 90px;
+	background-color: white;
 }
-.xuanxiang{
-	position:absolute;
-	width:70px;
-	
-	background-color:white;	
+
+.xuanxiang {
+	position: absolute;
+	width: 90px;
+	background-color: white;
 }
 
 .dropdown {
-  position: relative;
-  display: inline-block;
+	position: relative;
+	display: inline-block;
 }
 
-.dropdown span:hover,.dropdown li a:hover{
-  color: orange;
-} 
+.dropdown span:hover, .dropdown li a:hover {
+	color: orange;
+}
 
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 70px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 100px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	padding: 12px 16px;
 }
+
 .dropdown:hover .dropdown-content {
-  display: block;
-  
+	display: block;
 }
 </style>
 <script>
-	$(function(){
+	$(function() {
 		$('.xuanxiang ul').hide();
-		$('.xuanxiang').hover(
-			function(){
-				$('.xuanxiang ul').show();
-			},function(){
-				$('.xuanxiang ul').hide();
+		$('.xuanxiang').hover(function() {
+			$('.xuanxiang ul').show();
+		}, function() {
+			$('.xuanxiang ul').hide();
 
-			}		
-		)
+		})
 	}
-			
+
 	)
 </script>
 </head>
@@ -135,13 +137,21 @@ a,.dropdown span{
 							<h3>热门</h3>
 							<div id="lmlblog-memeber-bg-music" class="aplayer"></div>
 							<ul>
-								<li class="menu-item"><a href="#">特别关注</a></li>
-								<li class="menu-item"><a href="#">粉丝</a></li>
-								<li class="menu-item"><a href="#">未分组</a></li>
-								<li class="menu-item"><a href="#">新闻</a></li>
-								<li class="menu-item"><a href="#">明星</a></li>
-								<li class="menu-item"><a href="#">动漫</a></li>
-								<li class="menu-item"><a href="#">创建分组</a></li>
+								<li class="menu-item"><a href="#">全部关注 ${allCount}</a></li>
+								
+								<li class="menu-item"><a href="#">未分组 ${weifenzu}</a></li>
+								<c:forEach items="${mygroup}" var="g">
+									<c:if test="${g.isdefault!=0}">
+								<li class="menu-item"><a href="#">${g.groupname} </a></li>
+									</c:if>	
+								</c:forEach>
+
+								<li class="menu-item"><a href="#">+创建分组 </a></li>
+								<li class="menu-item"><a href="#">粉丝 </a></li>
+								
+								
+								
+								
 							</ul>
 						</div>
 					</div>
@@ -153,18 +163,20 @@ a,.dropdown span{
 								<div class="lmlblog-posts-list words"
 									style="background-image: url(images/058.png);" data="4197">
 									<div class="lmlblog-post-content ">
-										<div>
+										<p >
 											<h>全部关注</h>
-										</div>
+										</p>
 										<br>
+										
+										<c:forEach items="${mypage.list}" var="users">
 										<div
-											style="width: 45%; height: 150px; border: solid; display: inline-block;">
+											style="width: 45%; height: 150px;  display: inline-block;">
 											<div class="guanzhu">
 												<div class="lmlblog-post-user-info-avatar" user-data="1">
 													<a href="#1" style="display: inline-block;"> <span
-														class="lmlblog-vip-icon"></span><img src="images/tx2.jpg"
+														class="lmlblog-vip-icon"></span><img src="${users.uhead}"
 														class="avatar" /><i
-														class="lmlblog-verify lmlblog-verify-a" title="司空琪"></i></a>
+														class="lmlblog-verify lmlblog-verify-a" title="司${users.uname}"></i></a>
 													<div class="lmlblog-user-info-card">
 														<div class="info_card_loading">
 															<img src="picture/chat-loading.gif">
@@ -172,43 +184,43 @@ a,.dropdown span{
 														</div>
 													</div>
 												</div>
-											</div>
+											</div> 
 											<div class="guanzhu1">
 												<div>
-													<a href="#1"> <font
-														style="color: #333; font-weight: 600">司空琪</font>
+													<a href="his.do?uid=${users.uid}"> <font
+														style="color: #333; font-weight: 600">${users.uname}</font>
 													</a> <span class="lmlblog-mark lmlblog-lv" title="经验：3815">Lv.6</span><span
-														class="lmlblog-mark lmlblog-vip">VIP 6</span>
-													<br><span>√已关注</span>
-													<br><p class="miaoshu">描述cdfefefesfedsfdsfdsf</p>
+														class="lmlblog-mark lmlblog-vip">VIP 6</span> <br>
+													<span>√已关注</span> <br>
+													<p class="miaoshu">${users.resume}</p>
 													<select>
-														<option>分组1</option>
-														<option>分组2</option>
+												<c:forEach items="${mygroup}" var="g">
+													<c:if test="${g.groupname==users.blongto}">
+													<option selected="selected">${g.groupname}</option>
+													</c:if>
+													<option>${g.groupname}</option>
+												</c:forEach>
+		
 													</select>&nbsp;
-<div class="dropdown">
-  <span>选项</span>
-  <div class="dropdown-content">
-    <li><a>特别关注</a></li>
-   <li> <a>私信</a></li>
-   <li><a>取消关注</a></li>
-  </div>
-</div>	
+													<div class="dropdown">
+														<span>选项</span>
+														<div class="dropdown-content">
+															<li><a>特别关注</a></li>
+															<li><a>私信</a></li>
+															<li><a>黑名单</a></li>
+															<li><a>取消关注</a></li>
+														</div>
+													</div>
 												</div>
 											</div>
 										</div>
-										<div
-											style="width: 45%; height: 150px; border: solid; display: inline-block;">
-
-										</div>
-										<div
-											style="width: 45%; height: 150px; border: solid; display: inline-block;">
-
-										</div>
-										<div
-											style="width: 45%; height: 150px; border: solid; display: inline-block;">
-
-										</div>
+								</c:forEach>
+								<div style="hight:150px;width: 100% ;" >
+								<br><br><br><br><br><br>
+								</div>
 									</div>
+
+									
 									<!-- posts_list -->
 									<div class="lmlblog-pager">
 										<a class="lmlblog-pager-left" href="#2">上一页</a>

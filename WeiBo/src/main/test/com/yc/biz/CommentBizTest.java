@@ -30,4 +30,8 @@ public class CommentBizTest {
 		cbiz.like(2);
 	}
 	
+	@Test
+	public void testselectcomment(){
+		cbiz.selectCommentsByPage(24, 1, 5);
+	}
 }
