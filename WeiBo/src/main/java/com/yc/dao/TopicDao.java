@@ -22,9 +22,14 @@ public interface TopicDao {
 	//@Results({
 	//	@Result(property="comments",column="topicid",one=@One(select="com.yc.dao.CommentDao.selectComments"))
 	//})
+	@Results({
+		@Result(property="commentcount",column="topicid",one=@One(select="com.yc.dao.CommentDao.SelectCount")),
+
+		@Result(property="user",column="uid",one=@One(select="com.yc.dao.UserDao.selectByID"))
+	})
 	List<Topic> select(@Param("uid")Integer uid,@Param("start")Integer start,@Param("size")Integer size);
 	//发帖
-	@Insert("insert into topic(uid,content,posttime,image) values(#{uid},#{content},now(),#{image})")
+	@Insert("insert into topic(uid,content,image) values(#{uid},#{content},#{image})")
 	void insert(Topic topic);
 	//被点赞
 	@Update("update topic set likecount=likecount+1 where topicid=#{topicid}")
@@ -41,5 +46,7 @@ public interface TopicDao {
 	@Select("select * from topic where topicid=#{topicid}")
 	Topic selectByID(Integer topicid);
 		
-	
+	//转发帖
+	@Insert("insert into topic(uid,content,image,transpondfrom,transfromuid,transfromuname) values(#{uid},#{content},#{image},#{transpondfrom},#{transfromuid},#{transfromuname})")
+	void transpond(Topic topic);
 }

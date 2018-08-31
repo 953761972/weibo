@@ -23,7 +23,7 @@ public class UserLoginInterceptorBySpring extends HandlerInterceptorAdapter{
         }
         String XRequested =request.getHeader("X-Requested-With");
         if("XMLHttpRequest".equals(XRequested)){
-            response.getWriter().write("IsAjax");
+           // response.getWriter().write("IsAjax");
             System.out.println("AJAX");
         }
         
@@ -34,8 +34,8 @@ public class UserLoginInterceptorBySpring extends HandlerInterceptorAdapter{
         System.out.println("requestUri" + requestUri);
         System.out.println("contextPath" + contextPath);
         System.out.println("url" + url);
-        User username = (User) request.getSession().getAttribute("logineduser");
-        if(null == username){
+        User user = (User) request.getSession().getAttribute("logineduser");
+        if(null == user){
             // 跳转到登录页面
             request.getRequestDispatcher("login.jsp").forward(request, response);
             return false;

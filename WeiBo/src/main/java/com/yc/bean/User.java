@@ -30,8 +30,32 @@ public class User {
 	private List<Group> groups;
 	private List<Album> albums;
 	private List<Topic> topics;
+	//
+	private String blongto;
+	private Integer groupid;
 	
 	
+	
+	public String getBlongto() {
+		return blongto;
+	}
+
+
+	public void setBlongto(String blongto) {
+		this.blongto = blongto;
+	}
+
+
+	public Integer getGroupid() {
+		return groupid;
+	}
+
+
+	public void setGroupid(Integer groupid) {
+		this.groupid = groupid;
+	}
+
+
 	public String getBackgroundimg() {
 		return backgroundimg;
 	}
@@ -238,7 +262,8 @@ public class User {
 				+ ", uregtime=" + uregtime + ", realname=" + realname + ", local=" + local + ", sex=" + sex
 				+ ", emotion=" + emotion + ", birthday=" + birthday + ", booldtype=" + booldtype + ", resume=" + resume
 				+ ", wechat=" + wechat + ", label=" + label + ", backgroundimg=" + backgroundimg + ", headbackground="
-				+ headbackground + ", groups=" + groups + ", albums=" + albums + ", topics=" + topics + "]";
+				+ headbackground + ", groups=" + groups + ", albums=" + albums + ", topics=" + topics + ", blongto="
+				+ blongto + ", groupid=" + groupid + "]";
 	}
 
 

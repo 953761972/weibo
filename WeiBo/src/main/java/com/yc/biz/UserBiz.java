@@ -15,13 +15,17 @@ public class UserBiz {
 	
 	@Autowired
 	private UserDao udao;
+	@Autowired
+	private GroupBiz gbiz;
 	//注册一个用户
 	public Integer insert(User user){
 		//Timestamp now=new Timestamp(System.currentTimeMillis());
 		//user.setUregtime(now);
 		String upass = Utils.md5(user.getUpass());
 		user.setUpass(upass);
-		return udao.insert(user);		
+		int uid=udao.insert(user);
+		gbiz.insertdefault(uid);
+		return 	uid;	
 	}
 	//用户登录验证
 	public List<User> select(User user){
@@ -30,7 +34,7 @@ public class UserBiz {
 		return udao.select(user);
 	}
 	//查找一个用户
-	public List<User> selectByID(Integer uid) {
+	public User selectByID(Integer uid) {
 		// TODO Auto-generated method stub
 		return udao.selectByID(uid);
 	}
@@ -46,4 +50,6 @@ public class UserBiz {
 	public int topicCount(Integer uid){
 		return udao.topicCount(uid);
 	}
+	
+
 }

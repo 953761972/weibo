@@ -42,13 +42,13 @@ a {
 					<div class="lmlblog-member-left-follow clear">
 
 
-						<li><a> <strong>${datas.followers}</strong> <span>关注</span>
+						<li><a href="myfriends.do?pagenum=1"> <strong>${datas.followers}</strong> <span>关注</span>
 						</a></li>
-						<li><a> <strong>${datas.fans}</strong> <span>粉丝</span>
+						<li><a href="mafans.do"> <strong>${datas.fans}</strong> <span>粉丝</span>
 						</a></li>
 						<li><a> <strong>${datas.likes}</strong> <span>喜欢</span>
 						</a></li>
-						<li><a> <strong>${datas.topicCounts}</strong> <span>微博</span>
+						<li><a href="index.do"> <strong>${datas.topicCounts}</strong> <span>微博</span>
 						</a></li>
 					</div>
 

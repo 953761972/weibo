@@ -1,5 +1,6 @@
 package com.yc.biz;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,37 @@ public class GroupBiz {
 	public void delete(Group group){
 		gdao.delete(group);
 		fbiz.changeAllToNull(group);
+	}
+	//新建默认分组
+	public void insertdefault(Integer uid){
+		Group g=new Group();
+		Group g1=new Group();
+		Group g2=new Group();
+		Group g3=new Group();
+		Group g4=new Group();
+		Group g5=new Group();
+		List<Group> list=new ArrayList<Group>();
+		g.setGroupname("黑名单");
+		g.setUid(uid);
+		g1.setGroupname("特别关注");
+		g1.setUid(uid);
+		g2.setGroupname("新闻");
+		g2.setUid(uid);
+		g3.setGroupname("动漫");
+		g3.setUid(uid);
+		g4.setGroupname("同学");
+		g4.setUid(uid);
+		g5.setGroupname("同事");
+		g5.setUid(uid);
+		list.add(g);
+		list.add(g1);
+		list.add(g2);
+		list.add(g3);
+		list.add(g4);
+		list.add(g5);
+		for(int i=0;i<list.size();i++){
+			gdao.insertdefault(list.get(i));
+		}
+		
 	}
 }

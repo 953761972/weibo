@@ -60,6 +60,11 @@ public class TopicBizTest {
 
 	}
 	
+	@Test
+	public void selectByid(){
+		Topic t=tbiz.selectByID(24);
+		System.out.println(t.getLikecount());
+	}
 }
 
 

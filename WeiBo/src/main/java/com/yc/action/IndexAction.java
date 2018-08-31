@@ -45,6 +45,7 @@ public class IndexAction {
 	
 	@Resource(name = "simpleEmailSendManagerImpl")
     private EmailSendManagerImpl emailSendManager;
+	private Integer pagesize=5;
 	
 	@RequestMapping("reg.do")
 	public String reg(User user,String code,Model m,HttpSession session){		
@@ -121,7 +122,7 @@ public class IndexAction {
 			pageNum="1";
 		}
 		User user=(User) session.getAttribute("logineduser");
-		Page<Topic> page = tbiz.select(user.getUid(), Integer.parseInt(pageNum), 3);
+		Page<Topic> page = tbiz.select(user.getUid(), Integer.parseInt(pageNum), pagesize);
 		m.addAttribute("mypage", page);
 		System.out.println(page.toString());
 		datas.setFans(ubiz.fans(user.getUid()));

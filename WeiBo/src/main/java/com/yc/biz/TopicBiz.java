@@ -22,7 +22,7 @@ public class TopicBiz {
         
 		long total=topicCount(uid);
 		System.out.println(total+""+topics.toString());
-		Page<Topic> p=new Page<Topic>(topics,total,pagenum,3);
+		Page<Topic> p=new Page<Topic>(topics,total,pagenum,size);
 		return p;		
 	}
 	//发帖
@@ -42,5 +42,9 @@ public class TopicBiz {
 	//查找一条帖子
 	public Topic selectByID(Integer topicid){
 		return tdao.selectByID(topicid);
+	}
+	//转发贴
+	public void transpond(Topic topic){
+		tdao.transpond(topic);
 	}
 }

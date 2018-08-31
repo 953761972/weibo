@@ -10,7 +10,21 @@ public class Group {
 	private Integer uid;
 	private String groupname;
 	private List<User> user;
+	private int friendscount;
+	private char isdefault;
 	
+	public int getFriendscount() {
+		return friendscount;
+	}
+	public void setFriendscount(int friendscount) {
+		this.friendscount = friendscount;
+	}
+	public char getIsdefault() {
+		return isdefault;
+	}
+	public void setIsdefault(char isdefault) {
+		this.isdefault = isdefault;
+	}
 	public List<User> getUser() {
 		return user;
 	}
@@ -37,7 +51,8 @@ public class Group {
 	}
 	@Override
 	public String toString() {
-		return "Group [groupid=" + groupid + ", uid=" + uid + ", groupname=" + groupname + ", user=" + user + "]";
+		return "Group [groupid=" + groupid + ", uid=" + uid + ", groupname=" + groupname + ", user=" + user
+				+ ", friendscount=" + friendscount + ", isdefault=" + isdefault + "]";
 	}
 	
 	
