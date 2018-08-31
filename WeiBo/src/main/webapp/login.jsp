@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-	<% if(request.getAttribute("msg")!=null){%>
+	<%
+	String msg=(String)request.getAttribute("msg");
+	if(msg!=null){%>
 		<script>
-		alert("<%=request.getAttribute("msg")%>");
+	
+		alert('<%=msg%>');
+		
 		</script>
 	<%}%>
 <head>
@@ -38,7 +42,7 @@
 									<label><input name="rember" type="checkbox"> 下次自动登录</label>
 								</div>
 								<div class="right check_right">
-									<a href="#">忘记密码</a>
+									<a href="wangji.jsp">忘记密码</a>
 								</div>
 							</div>
 							<div class="form_btn">

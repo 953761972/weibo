@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-	<% if(request.getAttribute("msg")!=null){%>
-		<script>
-		alert("<%=request.getAttribute("msg")%>");
-		</script>
-	<%}%>
 <head>
 		<meta charset="utf-8">
 		<title>修改密码</title>
@@ -23,19 +18,19 @@
 						<div class="login_title">
 							修改密码
 						</div>
-						<form action="#" method="post">
-							
+						<form action="xiugai.do" method="post">
+							<input type="hidden" name="uemail" value="${param.uemail}"/>
 							<div class="form_text_ipt">
-								<input name="username" type="text" placeholder="新密码">
+								<input name="newPass" type="password" placeholder="新密码">
 							</div>
 							<div class="ececk_warning"><span>密码不能为空</span></div>
 
 							<div class="form_text_ipt">
-								<input name="password" type="password" placeholder="确认密码">
+								<input name="rePass" type="password" placeholder="确认密码">
 							</div>
 							<div class="ececk_warning"><span>请确认修改密码</span></div>
 							<div class="form_btn">
-								<button type="button" onclick="javascript:window.location.href='login.jsp'">
+								<button type="button" onclick="submitpass()">
 
 								修改密码</button>
 							</div>
@@ -46,8 +41,13 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
 		<script type="text/javascript" src="js/common.js" ></script>
+		<script type="text/javascript">
+		function submitpass(){
+			$('form').submit();
+		}
+		</script>
 		<div style="text-align:center;">
 </div>
 	</body>

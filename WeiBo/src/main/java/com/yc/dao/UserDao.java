@@ -4,12 +4,15 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import com.yc.bean.User;
 @Repository
 public interface UserDao {
+	
 	//用于登录
 	@Select("select * from user where uemail=#{uemail} and upass=#{upass}")
 	List<User> select(User user);
@@ -33,6 +36,7 @@ public interface UserDao {
 	//查找邮箱
 	@Select("select * from user where uemail=#{uemail}")
 	List<User> selectUemail(String uemail);
-	
-
+	//修改密码
+	@Update("update user set  upass=#{upass} where uemail=#{uemail}")
+	int updata(@Param("upass")String upass,@Param("uemail")String uemail);
 }

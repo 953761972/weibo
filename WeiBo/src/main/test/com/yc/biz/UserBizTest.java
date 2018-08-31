@@ -31,4 +31,10 @@ public class UserBizTest {
 		boolean s1 =ubiz.SelectUemail("374248066@qq.com");
 		System.out.println(s+"/"+s1);
 	}
+	
+	@Test
+	public void uemailpasstest(){
+		
+		System.out.println(ubiz.xiugai("ssssss", "374248066@qq.com"));
+	}
 }

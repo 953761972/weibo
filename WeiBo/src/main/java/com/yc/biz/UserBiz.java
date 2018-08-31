@@ -1,6 +1,6 @@
 package com.yc.biz;
 
-import java.sql.Timestamp;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,4 +54,15 @@ public class UserBiz {
 			System.out.println(u.size());
 			return u.size()<=0?false:true;		
 	}
+	
+	//修改密码
+	public int xiugai(String upass,String uemail){
+		       upass=Utils.md5(upass);
+		      return  udao.updata(upass,uemail);
+		      
+		        
+		        	
+		        
+	}
+
 }

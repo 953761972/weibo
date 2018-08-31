@@ -21,7 +21,7 @@
 						<div class="login_title">
 							忘记密码
 						</div>
-						<form action="xiugai.do" method="post">
+						<form  method="post">
 							
 							<div class="form_text_ipt">
 								<input  id="uemail" name="uemail" type="text" placeholder="手机号/邮箱">
@@ -51,13 +51,16 @@
 			var num=$('#ebt').val();
 			var p=$('input[name=password]').val();
 			
-			alert('p'+p);
-			alert('num'+num);
+			//alert('p'+p);
+		//	alert('num'+num);
 			if($('input[name=password]').val()!=num){
 				alert('验证码不正确');
 				return false;
 			}
-			$('form').submit();
+			//$('form').submit();
+			//action="xiugai.jsp?uemail="
+					var uemail=$('#uemail').val();
+			window.location.href="xiugai.jsp?uemail="+uemail;			
 		}
 		
 	$('#sendemail').on('click',function(){
@@ -73,23 +76,15 @@
 			//alert(ddd);
 			var flag=data.replace("IsAjax","");
 			//alert(flag);
-			if(flag==1){
-				
-				
+			if(flag==1){				
 				alert('发送成功！');
 			}
 			if(flag==-1){
 				$('#uemail').removeAttr('disabled');
 				alert('该邮箱未注册！');
-			}
-			//a.attr('value','已发送');
-			//a.disabled='disabled';
-			//a.style.color='gray';
-			
+			}			
 		});
 	});
-		
-
 		</script>
 
 		<div style="text-align:center;">

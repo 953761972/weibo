@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.yc.bean.SimpleEmail;
 import com.yc.biz.UserBiz;
 import com.yc.biz.impl.EmailSendManagerImpl;
-import com.yc.dao.UpdateDAO;
 
 @Controller
 public class WujiAction {
@@ -30,7 +29,8 @@ public class WujiAction {
     	 System.out.println(uemail);
     	  UserBiz ubiz=new UserBiz();
     	 if(true){
-    		 System.out.println("正在发送.....");
+    		 System.out.println("正在发送....."+ecode);
+    		 
     		 SimpleEmail simpleEmail = new SimpleEmail(); 
        	  simpleEmail.setContent("验证码："+ecode);
              Set<String> receivers = new HashSet<>();
@@ -39,10 +39,8 @@ public class WujiAction {
              simpleEmail.setToSet(receivers);
              simpleEmail.setHtml(false);
              try {
-   			emailSendManager.sendEmail(simpleEmail);
-   			
-             } catch (MessagingException e) {
-   		
+   			emailSendManager.sendEmail(simpleEmail);   			
+             } catch (MessagingException e) {   		
    			e.printStackTrace();
    			System.out.print("发送失败！");
    		}
@@ -55,10 +53,19 @@ public class WujiAction {
     	 
 	}
       @RequestMapping("xiugai.do")
-	public String xiugai(Model m,String uemail){
-		return uemail;
-
-		
-		
+	public String xiugai(Model m,String uemail,String newPass,String rePass)throws IOException{
+    	  UserBiz ubiz=new UserBiz();
+    	  System.out.println(newPass+"/"+rePass+"uemail"+uemail);
+    	if(newPass.equals(rePass)){
+    		if(ubiz.xiugai(newPass, uemail)>0){
+    			m.addAttribute("msg","修改成功");
+    			return "login";
+    		}else{
+    			m.addAttribute("msg","修改出错！");
+    		}		
+    	}else{
+    		m.addAttribute("msg","两次密码不一致");
+    	}
+		return "xiugai";
 	}
 }
