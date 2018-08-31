@@ -10,7 +10,7 @@ if(msg!=null){%>
 	</script>
 <% }%>
 
-<c:if test="${mypage==null}">
+<c:if test="${mypage==null}">	
 
 	<jsp:forward page="index.do">
 		<jsp:param value="op" name="1" />

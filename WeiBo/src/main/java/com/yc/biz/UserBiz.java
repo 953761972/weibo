@@ -29,8 +29,8 @@ public class UserBiz {
 	}
 	//用户登录验证
 	public List<User> select(User user){
-		//String upass = Utils.md5(user.getUpass());
-		//user.setUpass(upass);
+		String upass = Utils.md5(user.getUpass());
+		user.setUpass(upass);
 		return udao.select(user);
 	}
 	//查找一个用户
@@ -50,6 +50,17 @@ public class UserBiz {
 	public int topicCount(Integer uid){
 		return udao.topicCount(uid);
 	}
+//<<<<<<< HEAD
 	
 
+//=======
+	//查找邮箱
+	public boolean SelectUemail(String uemail){
+		
+			List<User> u=udao.selectUemail(uemail);
+			System.out.println(u.toString());
+			System.out.println(u.size());
+			return u.size()<=0?false:true;		
+	}
+//>>>>>>> branch 'master' of https://github.com/953761972/weibo.git
 }

@@ -23,4 +23,12 @@ public class UserBizTest {
 		user.setUemail("1215@qq.com");
 		ubiz.insert(user);
 	}
+	
+	@Test
+	public void uemailTest(){
+
+		boolean s=ubiz.SelectUemail("4248066@qq.com");
+		boolean s1 =ubiz.SelectUemail("374248066@qq.com");
+		System.out.println(s+"/"+s1);
+	}
 }

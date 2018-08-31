@@ -1,4 +1,4 @@
-package com.yc.qita;
+/*package com.yc.qita;
 
 public class Test1 {
 	public static void main(String[] args) {
@@ -105,4 +105,4 @@ $("    <div class='comment-show' style='background-image: url(images/153.png);'>
           "  <div class='hf-list-con'></div>"+
        " </div>"+
    " </div>"+
-"</div>");
+"</div>");*/
