@@ -2,6 +2,7 @@ package com.yc.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.One;
 import org.apache.ibatis.annotations.Param;
@@ -49,4 +50,7 @@ public interface TopicDao {
 	//转发帖
 	@Insert("insert into topic(uid,content,image,transpondfrom,transfromuid,transfromuname) values(#{uid},#{content},#{image},#{transpondfrom},#{transfromuid},#{transfromuname})")
 	void transpond(Topic topic);
+	//删除帖
+	@Delete("delete from topic where topicid=#{topicid}")
+	int admindelete(Integer topicid);
 }

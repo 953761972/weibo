@@ -8,6 +8,7 @@ import org.apache.ibatis.plugin.Intercepts;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.yc.bean.Guanli;
 import com.yc.bean.User;
 /**
  * @description 利用spring框架提供的HandlerInterceptorAdapter，实现自定义拦截器
@@ -35,6 +36,15 @@ public class UserLoginInterceptorBySpring extends HandlerInterceptorAdapter{
         System.out.println("contextPath" + contextPath);
         System.out.println("url" + url);
         User user = (User) request.getSession().getAttribute("logineduser");
+        Guanli admin = (Guanli) request.getSession().getAttribute("loginedadmin");
+        if(admin!=null){
+            return true;	
+        }
+        if(admin==null){
+            request.getRequestDispatcher("guanli.jsp").forward(request, response);
+
+            return false;	
+        }
         if(null == user){
             // 跳转到登录页面
             request.getRequestDispatcher("login.jsp").forward(request, response);

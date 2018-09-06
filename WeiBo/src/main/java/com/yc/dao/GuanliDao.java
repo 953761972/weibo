@@ -17,6 +17,7 @@ public interface GuanliDao {
 		@Select("select * from guanli where gemail=#{gemail} and gpass=#{gpass}")
 		List<Guanli> select(Guanli guanli) ;
 		
+		
 		//查找邮箱
 		@Select("select * from guanli where gemail=#{gemail}")
 		List<Guanli> selectGemail(String gemail);

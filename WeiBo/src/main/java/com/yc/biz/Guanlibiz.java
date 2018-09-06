@@ -6,11 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yc.bean.Guanli;
-import com.yc.bean.User;
 import com.yc.dao.GuanliDao;
-import com.yc.util.Utils;
-
-;
 
 @Service
 public class Guanlibiz {

@@ -35,8 +35,9 @@ public class GuanliAction {
 		List<Guanli> list=gbiz.select(guanli);			
 		if(list.size()>0){
 			//把用户数据写入session
-			session.setAttribute("logineduser", list.get(0));
-			return "index1";
+			session.setAttribute("loginedadmin", list.get(0));
+			return "index2";
+			
 		}else{
 			m.addAttribute("msg", "用户名或密码错误！");
 			return "guanli";	
@@ -73,6 +74,8 @@ public class GuanliAction {
     	 }
     	 
 	}
+      
+      //修改密码
       @RequestMapping("xiugai1.do")
   	public String gxiugai(Model m,String gemail,String newPass,String rePass)throws IOException{
       	  //UserBiz ubiz=new UserBiz();

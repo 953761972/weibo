@@ -117,8 +117,14 @@
 			  <mvc:exclude-mapping path="/**/reg.do"/>  
 			  <mvc:exclude-mapping path="/**/bangding.do"/>
 			  <mvc:exclude-mapping path="/**/bd.do"/>
-			   <mvc:exclude-mapping path="/**/wangji.do"/>
-			   <mvc:exclude-mapping path="/**/xiugai.do"/>   
+			  <mvc:exclude-mapping path="/**/wangji.do"/>
+			  <mvc:exclude-mapping path="/**/xiugai.do"/>  
+			  <mvc:exclude-mapping path="/**/guanli.do"/>
+			  <mvc:exclude-mapping path="/**/wangji1.do"/>   
+			  <mvc:exclude-mapping path="/**/xiugai1.do"/> 
+			  <mvc:exclude-mapping path="/**/chazhao.do"/>   
+			    
+			   
 
             <!--定义在<mvc:interceptor>下面的表示匹配指定路径的请求才进行拦截-->
             <bean class="com.yc.filter.UserLoginInterceptorBySpring"/>
